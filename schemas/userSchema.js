@@ -13,10 +13,16 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    // status: {
-    //   type: String,
-    //   enum: ["active", "inactive"],
-    // },
+    status: {
+        type: String,
+        enum: ["active", "inactive"],
+    },
+    todos: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: "Todo",
+        },
+    ],
 });
 
 module.exports = userSchema;
